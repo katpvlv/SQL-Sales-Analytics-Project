@@ -90,3 +90,19 @@ from customers
 group by age_category
 order by age_category
 ;
+
+select
+	case 
+		when s.sale_date between '1992-09-01' and '1992-09-30' then '1992-09'
+		when s.sale_date between '1992-10-01' and '1992-10-31' then '1992-10'
+		when s.sale_date between '1992-11-01' and '1992-11-30' then '1992-11'
+		when s.sale_date between '1992-12-01' and '1992-12-31' then '1992-12'
+	end as date,
+	count(s.customer_id) as total_customers,
+	sum(s.quantity * p.price) as income 
+from sales s
+join products p 
+on s.product_id = p.product_id 
+group by date
+order by date
+;
