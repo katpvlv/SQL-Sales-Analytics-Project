@@ -106,3 +106,27 @@ on s.product_id = p.product_id
 group by date
 order by date
 ;
+
+with tab as
+(
+select
+	concat(c.first_name, ' ', c.last_name) as customer,
+	first_value (s.sale_date) over (partition by concat(c.first_name, ' ', c.last_name)) as sale_date,
+	first_value (p.price) over (partition by concat(c.first_name, ' ', c.last_name) order by s.sale_date, p.price) as first_purchase,
+	concat(e.first_name, ' ', e.last_name) as seller
+from sales s 
+join customers c 
+	on s.customer_id = c.customer_id 
+join employees e 
+	on e.employee_id = s.sales_person_id 
+join products p
+	on p.product_id = s.product_id
+)
+select 
+	customer,
+	sale_date,
+	seller
+from tab
+where first_purchase = '0'
+group by customer, sale_date, seller
+;
