@@ -76,3 +76,17 @@ join employees e
   on wi.sales_id = e.employee_id
 order by weekday, name
 ;
+
+/* 3 задание*/
+
+select
+	case 
+		when age >15 and age <26 then '16-25'
+		when age >25 and age <41 then '26-40'
+		when age >40 then '40+'
+	end as age_category,
+	count(customer_id) as count
+from customers
+group by age_category
+order by age_category
+;
