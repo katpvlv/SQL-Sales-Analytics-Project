@@ -1,16 +1,17 @@
-/* 1 задание*/
+/* 4 задание*/
 select count(customer_id) as customers_count
 from customers;
+/* считает количество записей в столбце customer_id*/
 
-/* 2 задание*/
-with operation_tab as
+/* 5 задание*/
+with operation_tab as /* создает временную таблицу, к которой мы будем обращаться ниже*/
 (
 select
   s.sales_person_id as sales_id,
-  concat(e.first_name, ' ', e.last_name) as name,
-  count(s.sales_id) as operations
+  concat(e.first_name, ' ', e.last_name) as name, /* объединяет значение из столбца e.first_name со значением из e.last_name, размещая между ними пробел */
+  count(s.sales_id) as operations /* считает количество s.sales_id*/
 from employees e
-join sales s 
+join sales s /* объединяет две таблицы по указанному полю*/
   on e.employee_id = s.sales_person_id
 group by s.sales_person_id, name 
 )
@@ -31,14 +32,14 @@ select
 from operation_tab ot
 left join income_tab it
   on ot.sales_id = it.sales_id
-order by income desc
+order by income desc /*cортирует в обратном порядке*/
 ;
 
 with income_tab as
 (
 select 
   s.sales_person_id as sales_id, 
-  sum(p.price * s.quantity) as income,
+  sum(p.price * s.quantity) as income, /* считает сумму выручки (выручка = цена * на количество проданных продуктов)*/
   count(s.sales_id) as operation
 from sales s 
 join products p 
@@ -47,12 +48,12 @@ group by s.sales_person_id
 )
 select
   concat(e.first_name, ' ', e.last_name) as name,
-  round(it.income/it.operation) as average_income
+  round(it.income/it.operation) as average_income /* считает среднюю выручку и округляет ее до целого значения*/
 from income_tab it
 join employees e
   on it.sales_id = e.employee_id
 group by name, average_income
-having round(it.income/it.operation) < (select avg(income/operation) from income_tab)
+having round(it.income/it.operation) < (select avg(income/operation) from income_tab) /*фильтрует среднюю выручку каждого продавца и показывает ту, что меньше средней по всем (во вложенном запросе делит всю выручку на все операции) */
 order by average_income
 ;
 
@@ -60,8 +61,8 @@ with weekday_income as
 (
 select
 	s.sales_person_id as sales_id,
-	to_char(s.sale_date, 'day') as weekday,
-	to_char(s.sale_date, 'd') as number_wd,
+	to_char(s.sale_date, 'day') as weekday, /* присваивает каждой дате имя дня недели в этот день*/
+	to_char(s.sale_date, 'd') as number_wd, /* присваивает каждой дате порядковый номер дня недели в этот день (нам понадобится это для сортировки)*/
 	sum(p.price * s.quantity) as income
 from sales s 
 join products p 
@@ -71,21 +72,21 @@ group by s.sales_person_id, weekday, number_wd
 select 
   concat(e.first_name, ' ', e.last_name) as name,
   wi.weekday as weekday,
-  round(wi.income) as income
+  round(wi.income) as income /* округляет выручку до целого числа*/
 from weekday_income wi
 join employees e
   on wi.sales_id = e.employee_id
 order by number_wd, weekday, name
 ;
 
-/* 3 задание*/
+/* 6 задание*/
 
 select
 	case 
 		when age >15 and age <26 then '16-25'
 		when age >25 and age <41 then '26-40'
 		when age >40 then '40+'
-	end as age_category,
+	end as age_category, /* присваивает каждому возрасту его категорию, например, 18 лет попадет в 16-25*/
 	count(customer_id) as count
 from customers
 group by age_category
@@ -98,7 +99,7 @@ select
 		when s.sale_date between '1992-10-01' and '1992-10-31' then '1992-10'
 		when s.sale_date between '1992-11-01' and '1992-11-30' then '1992-11'
 		when s.sale_date between '1992-12-01' and '1992-12-31' then '1992-12'
-	end as date,
+	end as date, /* присваивает каждой дате тот месяц и год, к которому она относится*/
 	count(s.customer_id) as total_customers,
 	sum(s.quantity * p.price) as income 
 from sales s
@@ -112,8 +113,8 @@ with tab as
 (
 select
 	concat(c.first_name, ' ', c.last_name) as customer,
-	first_value (s.sale_date) over (partition by concat(c.first_name, ' ', c.last_name)) as sale_date,
-	first_value (p.price) over (partition by concat(c.first_name, ' ', c.last_name) order by s.sale_date, p.price) as first_purchase,
+	first_value (s.sale_date) over (partition by concat(c.first_name, ' ', c.last_name)) as sale_date, /* выбирает первое значение s.sale_date в разрезе имени */
+	first_value (p.price) over (partition by concat(c.first_name, ' ', c.last_name) order by s.sale_date, p.price) as first_purchase, /*выбирает первое значение p.price в разрезе имени и отсортированному по s.sale_date, p.price */
 	concat(e.first_name, ' ', e.last_name) as seller
 from sales s 
 join customers c 
@@ -128,6 +129,6 @@ select
 	sale_date,
 	seller
 from tab
-where first_purchase = '0'
+where first_purchase = '0' /* фильтрует данные по first_purchase и оставляет только то, где first_purchase равен 0 */
 group by customer, sale_date, seller
 ;
