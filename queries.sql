@@ -61,11 +61,12 @@ with weekday_income as
 select
 	s.sales_person_id as sales_id,
 	to_char(s.sale_date, 'day') as weekday,
+	to_char(s.sale_date, 'd') as number_wd,
 	sum(p.price * s.quantity) as income
 from sales s 
 join products p 
   on s.product_id = p.product_id
-group by s.sales_person_id, weekday
+group by s.sales_person_id, weekday, number_wd
 )
 select 
   concat(e.first_name, ' ', e.last_name) as name,
@@ -74,7 +75,7 @@ select
 from weekday_income wi
 join employees e
   on wi.sales_id = e.employee_id
-order by weekday, name
+order by number_wd, weekday, name
 ;
 
 /* 3 задание*/
