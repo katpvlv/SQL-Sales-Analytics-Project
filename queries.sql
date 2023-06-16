@@ -33,6 +33,7 @@ from operation_tab ot
 left join income_tab it
   on ot.sales_id = it.sales_id
 order by income desc /*cортирует в обратном порядке*/
+limit 10 /* выдает только первые 10 значений*/
 ;
 
 with income_tab as
