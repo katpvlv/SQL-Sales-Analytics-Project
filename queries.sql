@@ -124,7 +124,7 @@ select
 	concat(c.first_name, ' ', c.last_name) as customer,
 	first_value (s.sale_date) over (partition by concat(c.first_name, ' ', c.last_name)) as sale_date, /* выбирает первое значение s.sale_date в разрезе имени */
 	first_value (p.price) over (partition by concat(c.first_name, ' ', c.last_name) order by s.sale_date, p.price) as first_purchase, /*выбирает первое значение p.price в разрезе имени и отсортированному по s.sale_date, p.price */
-	concat(e.first_name, ' ', e.last_name) as seller
+	first_value (concat(e.first_name, ' ', e.last_name)) over (partition by concat(c.first_name, ' ', c.last_name) order by s.sale_date, p.price) as seller /*выбирает первое значение имя продавца в разрезе имени и отсортированному по s.sale_date, p.price */
 from sales s 
 join customers c 
 	on s.customer_id = c.customer_id 
@@ -140,4 +140,5 @@ select
 from tab
 where first_purchase = '0' /* фильтрует данные по first_purchase и оставляет только то, где first_purchase равен 0 */
 group by customer, sale_date, seller
+order by customer_id, sale_date
 ;
