@@ -137,3 +137,4 @@ from tab
 where first_purchase = '0' /* фильтрует данные по first_purchase и оставляет только то, где first_purchase равен 0 */
 group by customer, customer_id,  sale_date, seller
 order by customer_id, sale_date
+;
