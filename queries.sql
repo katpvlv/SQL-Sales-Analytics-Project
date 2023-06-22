@@ -48,7 +48,7 @@ join products p
 group by s.sales_person_id
 )
 select
-  concat(e.first_name, ' ', e.last_name) as name,
+  (e.first_name || ' ' || e.last_name) as name,
   round(it.income/it.operations_cnt) as average_income /* считает среднюю выручку и округляет ее до целого значения*/
 from income_tab it
 join employees e
@@ -71,7 +71,7 @@ join products p
 group by s.sales_person_id, weekday, number_wd
 )
 select 
-  concat(e.first_name, ' ', e.last_name) as name,
+  (e.first_name || ' ' || e.last_name) as name,
   wi.weekday as weekday,
   round(wi.income) as income /* округляет выручку до целого числа*/
 from weekday_income wi
