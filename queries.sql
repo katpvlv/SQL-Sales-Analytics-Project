@@ -63,7 +63,7 @@ with weekday_income as
 select
 	s.sales_person_id as sales_id,
 	to_char(s.sale_date, 'day') as weekday, /* присваивает каждой дате имя дня недели в этот день*/
-	extract(dow from s.sale_date) as number_wd, /* присваивает каждой дате порядковый номер дня недели в этот день (нам понадобится это для сортировки)*/
+	extract(isodow from s.sale_date) as number_wd, /* присваивает каждой дате порядковый номер дня недели в этот день (нам понадобится это для сортировки)*/
 	sum(p.price * s.quantity) as income
 from sales s 
 join products p 
