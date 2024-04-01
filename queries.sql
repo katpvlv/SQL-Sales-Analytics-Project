@@ -1,9 +1,9 @@
-/* 4 задание*/
+/* 2 задание*/
 select count(customer_id) as customers_count
 from customers;
 /* считает количество записей в столбце customer_id*/
 
-/* 5 задание*/
+/* 3 задание*/
 with operation_tab as /* создает временную таблицу, к которой мы будем обращаться ниже*/
 (
 select
@@ -80,7 +80,7 @@ join employees e
 order by number_wd, weekday, name
 ;
 
-/* 6 задание*/
+/* 4 задание*/
 
 select
 	case 
