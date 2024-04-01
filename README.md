@@ -19,8 +19,8 @@ SQL-запросы сформированы для PostgeSQL, с помощью 
 
 
 Excel-таблицы для первой задачи:
-  *[Таблица товаров](https://docs.google.com/spreadsheets/d/1NGwLlnzN4jIaoraJe-JS4i_jK8jDRUJumkNOBVI-t7w/copy?usp=sharing)
-  *[Таблица продаж](https://docs.google.com/spreadsheets/u/1/d/1Y_gzrFfOAJfTZo2u-PfU4selSic11dqM50bS3RlLA8M/copy?usp=sharing&pli=1)
+   * [Таблица товаров](https://docs.google.com/spreadsheets/d/1NGwLlnzN4jIaoraJe-JS4i_jK8jDRUJumkNOBVI-t7w/copy?usp=sharing)
+   * [Таблица продаж](https://docs.google.com/spreadsheets/u/1/d/1Y_gzrFfOAJfTZo2u-PfU4selSic11dqM50bS3RlLA8M/copy?usp=sharing&pli=1)
 
 
 ### Задачи:
