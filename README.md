@@ -1,13 +1,10 @@
-### Hexlet tests and linter status:
-[![Actions Status](https://github.com/katpvlv/data-analytics-project-92/workflows/hexlet-check/badge.svg)](https://github.com/katpvlv/data-analytics-project-92/actions)
+# Проект «Аналитика продаж»
 
-Проект «Аналитика продаж»
 В рамках проекта была проанализирована работа отдела продаж.
-SQL-запросы сформированы для PostgeSQL, с помощью редактора DBeaver(https://dbeaver.io/download/). 
+SQL-запросы сформированы для PostgeSQL, с помощью редактора [DBeaver](https://dbeaver.io/download/). 
+[Файл с запросами](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/queries.sql)
 
-Файл с запросами: https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/queries.sql
-
-Задачи:
+### Задачи:
 1. Создать сводную таблицу excel с 10 товарами, которые продались на наибольшую сумму. Результат: https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/top_10_profitable_products.csv
 2. Напишисать SQL-запрос, который считает общее количество покупателей. Результат: https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/customers_count.csv
 3. Проанализировать данные о продавцах с помощью SQL-запросов (используется join, concat, подзапросы, группировка и сортировка). Подготовлен отчет о продавцах, у которых наибольшая выручка - https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/top_10_total_income.csv 
