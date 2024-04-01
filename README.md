@@ -7,6 +7,22 @@ SQL-запросы сформированы для PostgeSQL, с помощью 
 Написанные в рамках проекта запросы лежат в этом [файле](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/queries.sql).
 
 
+Для подключения к БД:
+1. Установить DBeaver
+2. Выбрать PostgreSQL
+3. Создать новое подключение, используя данные:
+  *Host: 65.108.223.44 
+  *Database: salesdb 
+  *Username: student 
+  *Password: student 
+  *Port: 5432
+
+
+Excel-таблицы для первой задачи:
+  *[Таблица товаров](https://docs.google.com/spreadsheets/d/1NGwLlnzN4jIaoraJe-JS4i_jK8jDRUJumkNOBVI-t7w/copy?usp=sharing)
+  *[Таблица продаж](https://docs.google.com/spreadsheets/u/1/d/1Y_gzrFfOAJfTZo2u-PfU4selSic11dqM50bS3RlLA8M/copy?usp=sharing&pli=1)
+
+
 ### Задачи:
 1. Создать сводную таблицу excel с 10 товарами, которые продались на наибольшую сумму. [Результат](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/top_10_profitable_products.csv)
 2. Напишисать SQL-запрос, который считает общее количество покупателей. [Результат](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/customers_count.csv)
