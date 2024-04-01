@@ -11,11 +11,11 @@ SQL-запросы сформированы для PostgeSQL, с помощью 
 1. Установить DBeaver
 2. Выбрать PostgreSQL
 3. Создать новое подключение, используя данные:
-  *Host: 65.108.223.44 
-  *Database: salesdb 
-  *Username: student 
-  *Password: student 
-  *Port: 5432
+   * Host: 65.108.223.44 
+   * Database: salesdb 
+   * Username: student 
+   * Password: student 
+   * Port: 5432
 
 
 Excel-таблицы для первой задачи:
