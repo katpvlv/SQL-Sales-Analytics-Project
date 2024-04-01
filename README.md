@@ -1,14 +1,11 @@
 # Проект «Аналитика продаж»
 
 В рамках проекта была проанализирована работа отдела продаж.
-SQL-запросы сформированы для PostgeSQL, с помощью редактора [DBeaver](https://dbeaver.io/download/). 
-
-
-Написанные в рамках проекта запросы лежат в этом [файле](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/queries.sql).
+SQL-запросы сформированы для PostgeSQL, с помощью редактора DBeaver. 
 
 
 Для подключения к БД:
-1. Установить DBeaver
+1. Установить [DBeaver](https://dbeaver.io/download/)
 2. Выбрать PostgreSQL
 3. Создать новое подключение, используя данные:
    * Host: 65.108.223.44 
@@ -21,6 +18,9 @@ SQL-запросы сформированы для PostgeSQL, с помощью 
 Excel-таблицы для первой задачи:
    * [Таблица товаров](https://docs.google.com/spreadsheets/d/1NGwLlnzN4jIaoraJe-JS4i_jK8jDRUJumkNOBVI-t7w/copy?usp=sharing)
    * [Таблица продаж](https://docs.google.com/spreadsheets/u/1/d/1Y_gzrFfOAJfTZo2u-PfU4selSic11dqM50bS3RlLA8M/copy?usp=sharing&pli=1)
+
+
+Написанные в рамках проекта запросы лежат в файле [queries.sql](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/queries.sql).
 
 
 ### Задачи:
