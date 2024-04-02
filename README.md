@@ -1,6 +1,6 @@
 # Проект «Аналитика продаж»
 
-В рамках проекта была проанализирована работа менеджеров по продажам, изучены данные о покупателях, оценена успешность проведенной маркетинговой акции.
+В рамках проекта была проанализирована работа менеджеров по продажам, изучены данные о покупателях, дана оценка успешности проведения маркетинговой акции.
 
 
 SQL-запросы сформированы для PostgeSQL, с помощью редактора DBeaver. Для визуализации использовался BI-инструмент Apache Superset. Презентация с выводами подготовлена в Google Slides.
@@ -30,6 +30,6 @@ Excel-таблицы для первой задачи:
 2. Написать SQL-запрос, который считает общее количество покупателей. [Результат](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/customers_count.csv)
 3. Проанализировать данные о продавцах с помощью SQL-запросов (используется join, concat, подзапросы, группировка и сортировка). Подготовлен [отчет](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/top_10_total_income.csv) о продавцах, у которых наибольшая выручка;
 [отчет](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/lowest_average_income.csv) о продавцах, чья выручка ниже средней; [отчет](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/day_of_the_week_income.csv) с данными о выручке по каждому продавцу и дню недели
-4. Проанализировать данные о покупателях и покупках с помощью SQL-запросов (используется case и оконные функции). Собрана [таблица](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/age_groups.csv) с возрастными группами покупателей, [таблица](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/customers_by_month.csv) с количеством покупателей и выручкой по месяцам, [таблица](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/special_offer.csv) с покупателями первая покупка которых пришлась на время проведения специальных акций
+4. Проанализировать данные о покупателях и покупках с помощью SQL-запросов (используется case и оконные функции). Собрана [таблица](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/age_groups.csv) с возрастными группами покупателей, [таблица](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/customers_by_month.csv) с количеством покупателей и выручкой по месяцам, [таблица](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/special_offer.csv) с покупателями, первая покупка которых пришлась на время проведения специальных акций
 5. Создать [дашборд с визуализацией полученных данных](https://a06e77b6.us1a.app.preset.io/superset/dashboard/SalesProject/) с помощью Apache Superset
-6. По результам анализа подготовить [презентация в Google Slides с итоговыми графиками и выводами](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/presentation.pdf)
+6. По результам анализа подготовить [презентацию в Google Slides с итоговыми графиками и выводами](https://github.com/katpvlv/SQL-Sales-Analytics-Project/blob/main/presentation.pdf)
